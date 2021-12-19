@@ -113,6 +113,7 @@ const InputPage = {
         console.log(value,'My ID iS  Available');
         // TransaksiContainer.innerHTML += createTableTemplate(listku);
       });
+      
       buttonDelete.addEventListener("click", function () {
         console.log(1234,'MAsuk Delete pak eko');
         // const book = {
@@ -122,9 +123,6 @@ const InputPage = {
         // };
         // insertBook(book)
       });
-
-      
-
 
     } catch (error) {
       loading.style.display = 'none';
