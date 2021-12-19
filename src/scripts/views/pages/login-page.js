@@ -1,57 +1,50 @@
-import { createLoginTemplate } from '../templates/login.js';
-const Login = {
-    async init({ formReviewContainer, id }) {
-      this._formReviewContainer = formReviewContainer;
-      this._id = id;
-      await this.render();
-    },
-    _renderReview(name, review) {
-      const reviewContainer = document.querySelector('.reviews');
-      const date = new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' });
-      const dataReview = `
-      <div class="review-item">
-        <h4 class="review_name"><i class="fa fa-user" aria-hidden="true"></i> ${name}</h4>
-        <p class="review_date">${date}</p>
-        <p class="review_desc">${review}</p>
-      </div>`;
-      reviewContainer.innerHTML += dataReview;
-    },
+/* LOGIN */
+// import UrlParser from '../../routes/url-parse';
+import RestaurantDbSource from '../../data/restaurantdb-source';
+// import { createRestaurantDetailTemplate } from '../templates/template-creator';
+// import LikeButtonPresenter from '../../utils/like-button-presenter';
+import FormReviewInitiator from '../../utils/form-review-initiator';
+// import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
+
+const LoginPage = {
   async render() {
     return `
-    <div class="content">
-        <div class="home-content" id="loginC"></div>
-    </div>`;
+    <div class="card-body">
+    <h4 class="title text-center mt-5" tabindex="0">
+      Selamat datang di BooKu!
+    </h4>
+    </div>
+
+    <div id="formReviewContainer"></div>`;
   },
 
   async afterRender() {
-    const homeContainer = document.querySelector('#loginC');
-    homeContainer.innerHTML = createLoginTemplate();
+    // const url = UrlParser.parseActiveUrlWithoutCombiner();
+    // console.log(url);
+    // const restaurantContainer = document.querySelector('.detail');
+    // const loading = document.querySelector('.loader');
+    // const review = document.querySelector('.detail-form');
 
-    this.form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      console.log(2334464);
-			var error = 0;
-			self.fields.forEach((field) => {
-				const input = document.querySelector(`#${field}`);
-				if (self.validateFields(input) == false) {
-					error++;
-				}
-			});
-			if (error == 0) {
-				//do login api here
-				localStorage.setItem("auth", 1);
-				this.form.submit();
-			}
-		});
+    // review.style.display = 'none';
+      
+    const data = await RestaurantDbSource.detailRestaurant('rqdv5juczeskfw1e867');
+    // restaurantContainer.innerHTML = createRestaurantDetailTemplate(data.restaurant);
 
-    const skipLinkElem = document.querySelector('skip-to-content');
-      skipLinkElem.addEventListener('click', (event) => {
-        console.log(21762876);
-        event.preventDefault();
-        document.querySelector('#loginC').focus();
+    // loading.style.display = 'none';
+    // review.style.display = 'block';
+
+    // const skipLinkElem = document.querySelector('skip-to-content');
+    // skipLinkElem.addEventListener('click', (event) => {
+    //   event.preventDefault();
+    //   document.querySelector('#item').focus();
+    // });
+
+    await FormReviewInitiator.init({
+      formReviewContainer: document.querySelector('#formReviewContainer'),
+      id: data.restaurant.id,
     });
+    console.log(data.restaurant.id,'HARUSNYA BISA DAPET');
   },
-  
 };
 
-export default Login;
+export default LoginPage;
