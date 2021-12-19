@@ -1,13 +1,13 @@
 import API_ENDPOINT from '../../globals/api-endpoint';
 
-const createRestaurantDetailTemplate = (restaurant) => `
-<div class="card-body">
-<h4 class="title text-center mt-5" tabindex="0">
-  Selamat datang di BooKu!
-</h4>
-</div>
+// const createRestaurantDetailTemplate = (restaurant) => `
+// <div class="card-body">
+// <h4 class="title text-center mt-5" tabindex="0">
+//   Selamat datang di BooKu!
+// </h4>
+// </div>
   
-  `;
+//   `;
 const createHomeTemplate = () => `
 <div class="card-body">
 <h4 class="title text-center mt-5" tabindex="0">
@@ -30,17 +30,17 @@ const createRestaurantItemTemplate = (restaurant) => `
     </div>
   </div>`;
 
-const createLikeRestaurantButtonTemplate = () => `
-  <button aria-label="like this restaurant" id="likeButton" class="like">
-    <i class="fa fa-heart-o" aria-hidden="true"></i>
-  </button>`;
+// const createLikeRestaurantButtonTemplate = () => `
+//   <button aria-label="like this restaurant" id="likeButton" class="like">
+//     <i class="fa fa-heart-o" aria-hidden="true"></i>
+//   </button>`;
 
-const createUnlikeRestaurantButtonTemplate = () => `
-  <button aria-label="unlike this restaurant" id="likeButton" class="like">
-    <i class="fa fa-heart" aria-hidden="true"></i>
-  </button>`;
+// const createUnlikeRestaurantButtonTemplate = () => `
+//   <button aria-label="unlike this restaurant" id="likeButton" class="like">
+//     <i class="fa fa-heart" aria-hidden="true"></i>
+//   </button>`;
 
-const createFormReviewTemplate = () => `
+const createFormLoginTemplate = () => `
 <form action="/#/home">
   <div class="form-input">
     <span><i class="fa fa-user-o"></i></span>
@@ -72,8 +72,8 @@ const createFormReviewTemplate = () => `
 export {
   createHomeTemplate,
   createRestaurantItemTemplate,
-  createRestaurantDetailTemplate,
-  createLikeRestaurantButtonTemplate,
-  createUnlikeRestaurantButtonTemplate,
-  createFormReviewTemplate,
+  // createRestaurantDetailTemplate,
+  // createLikeRestaurantButtonTemplate,
+  // createUnlikeRestaurantButtonTemplate,
+  createFormLoginTemplate,
 };

@@ -1,9 +1,7 @@
-/* eslint-disable no-alert */
-/* eslint-disable no-mixed-spaces-and-tabs */
-/* eslint-disable no-tabs */
-/* eslint-disable no-underscore-dangle */
+/* FORM LOGIN */
+
 import RestaurantDbSource from '../data/restaurantdb-source';
-import { createFormReviewTemplate } from '../views/templates/template-creator';
+import { createFormLoginTemplate } from '../views/templates/template-creator';
 
 const FormReviewInitiator = {
   async init({ formReviewContainer }) {
@@ -13,7 +11,8 @@ const FormReviewInitiator = {
   },
 
   async _renderForm() {
-    this._formReviewContainer.innerHTML = createFormReviewTemplate();
+    this._formReviewContainer.innerHTML = createFormLoginTemplate();
+    
     const button = document.querySelector('.submit');
     button.addEventListener('click', async (e) => {
       e.preventDefault();
@@ -38,20 +37,20 @@ const FormReviewInitiator = {
     });
   },
 
-  _renderReview(data) {
+  // _renderReview(data) {
 
-    console.log(data,'AFTER RENDER NYARI TOKEN');
-    // const reviewContainer = document.querySelector('.reviews');
-    // const date = new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' });
+  //   console.log(data,'AFTER RENDER NYARI TOKEN');
+  //   // const reviewContainer = document.querySelector('.reviews');
+  //   // const date = new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' });
     
-    // const dataReview = `
-    // <div class="review-item">
+  //   // const dataReview = `
+  //   // <div class="review-item">
   
-    // </div>`;
-    // console.log(dataReview,'inipunya aku');
+  //   // </div>`;
+  //   // console.log(dataReview,'inipunya aku');
 
-    // reviewContainer.innerHTML += dataReview;
-  },
+  //   // reviewContainer.innerHTML += dataReview;
+  // },
 };
 
 export default FormReviewInitiator;
